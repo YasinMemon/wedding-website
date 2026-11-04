@@ -13,15 +13,23 @@ import { MusicPlayer } from './components/MusicPlayer';
 import { PetalRain } from './components/PetalRain';
 
 export default function App() {
-  const [isInvitationOpen, setIsInvitationOpen] = useState(false);
+  // Has the visitor passed through the opening cinematic screen initially?
+  const [hasEnteredWebsite, setHasEnteredWebsite] = useState(false);
+  // Is the invitation card currently being viewed?
+  const [isCardModalOpen, setIsCardModalOpen] = useState(true);
 
   const handleOpenInvitation = () => {
-    setIsInvitationOpen(true);
+    setIsCardModalOpen(false);
+    setHasEnteredWebsite(true);
   };
 
   const handleReopenInvitation = () => {
-    setIsInvitationOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsCardModalOpen(true);
+  };
+
+  const handleCloseCard = () => {
+    setIsCardModalOpen(false);
+    setHasEnteredWebsite(true);
   };
 
   return (
@@ -29,14 +37,16 @@ export default function App() {
       {/* Background Floating Petals & Gold Dust */}
       <PetalRain active={true} speed={0.8} />
 
-      {/* Cinematic Opening Screen */}
+      {/* Cinematic Opening / Invitation Card Modal */}
       <OpeningExperience
-        isOpen={isInvitationOpen}
+        isOpen={!isCardModalOpen}
         onOpenInvitation={handleOpenInvitation}
+        onClose={handleCloseCard}
+        isReopened={hasEnteredWebsite}
       />
 
-      {/* Main Website Content */}
-      <div className={`transition-opacity duration-1000 ${isInvitationOpen ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Main Website Content - stays rendered and visible */}
+      <div className={`transition-opacity duration-700 ${hasEnteredWebsite || !isCardModalOpen ? 'opacity-100' : 'opacity-10'}`}>
         {/* Sticky Luxury Navbar */}
         <Navbar onReopenInvitation={handleReopenInvitation} />
 
