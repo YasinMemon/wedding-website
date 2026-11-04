@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-cinzel: "Cinzel", "Times New Roman", serif;
+  --font-cinzel-dec: "Cinzel Decorative", "Times New Roman", serif;
+  --font-script: "Alex Brush", "Great Vibes", cursive;
+  --font-script-alt: "Great Vibes", cursive;
+  --font-sans: "Montserrat", sans-serif;
+
+  --color-ivory: #FAF7F2;
+  --color-ivory-warm: #F4EFE6;
+  --color-ivory-dark: #EBE3D5;
+  --color-gold: #C5A059;
+  --color-gold-light: #E7D5AA;
+  --color-gold-dark: #8E6D2F;
+  --color-gold-metallic: #D4AF37;
+  --color-maroon: #4A0E17;
+  --color-maroon-dark: #2A060C;
+  --color-maroon-light: #6E1B28;
+  --color-emerald: #1B382B;
+}
+
+/* Custom luxury patterns and ornaments */
+.bg-mandala-pattern {
+  background-image: radial-gradient(circle at center, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #ECC880 0%, #C5A059 50%, #9A7730 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-light-gradient {
+  background: linear-gradient(135deg, #FFF0D0 0%, #E7D5AA 50%, #C5A059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #ECC880 0%, #C5A059 50%, #8E6D2F 100%) 1;
+}
+
+.gold-shimmer-box {
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.12) 0%, rgba(247, 242, 231, 0.6) 50%, rgba(197, 160, 89, 0.12) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+}
+
+.maroon-card-glow {
+  box-shadow: 0 15px 35px -5px rgba(74, 14, 23, 0.18), 0 0 0 1px rgba(197, 160, 89, 0.25);
+}
+
+/* Royal Arch Clip Path */
+.clip-royal-arch {
+  clip-path: polygon(
+    0% 100%,
+    0% 35%,
+    10% 25%,
+    25% 15%,
+    50% 0%,
+    75% 15%,
+    90% 25%,
+    100% 35%,
+    100% 100%
+  );
+}
+
+/* Smooth custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #C5A059;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8E6D2F;
+}
